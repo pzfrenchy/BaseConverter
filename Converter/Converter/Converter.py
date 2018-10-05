@@ -35,13 +35,17 @@ def calcHexFromDen(digits):
 
 def findInitialBase(inputType, digits):
     if inputType == 'b':
-        print('Denary value is {}'.format(calcDenFromBin(digits)))
+        denValue = calcDenFromBin(digits)
+        print('Denary value is {}'.format(denValue))
+        hexValue = calcHexFromDen(int(denValue))
+        hexString = ''.join(str(e) for e in hexValue)
+        print('Hex value is {}'.format(hexString))
     elif inputType == 'h':
         print('hex')
     elif inputType == 'd':
         hexValue = calcHexFromDen(int(digits))
         hexString = ''.join(str(e) for e in hexValue)
-        print(hexString)
+        print('Hex value is {}'.format(hexString))
     else:
         print('incorrect suffix')
 
