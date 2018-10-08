@@ -33,6 +33,13 @@ def calcHexFromDen(digits):
             value.append(n)
     return value
 
+def calcBinFromDen(digits):
+    value = ''
+    while digits > 0:
+        value = str(digits%2) + value
+        digits = digits//2 #floored division, truncates value, rounds to nearest smallest
+    return value
+
 def findInitialBase(inputType, digits):
     if inputType == 'b':
         denValue = calcDenFromBin(digits)
@@ -45,7 +52,9 @@ def findInitialBase(inputType, digits):
     elif inputType == 'd':
         hexValue = calcHexFromDen(int(digits))
         hexString = ''.join(str(e) for e in hexValue)
+        binValue = calcBinFromDen(int(digits))
         print('Hex value is {}'.format(hexString))
+        print('Binary value is {}'.format(binValue))
     else:
         print('incorrect suffix')
 
