@@ -19,7 +19,8 @@ def calcHexFromDen(digits):
     hexAlphaValues = [(10,'A'),(11,'B'),(12,'C'),(13,'D'),(14,'E'),(15,'F')]
     hexDigits = []
     while digits > 15:
-        hexDigits.append(digits % 16)
+        hexDigits.append(int(digits % 16))
+        print(hexDigits)
         digits = digits / 16
     hexDigits.append(int(digits % 16))
     hexDigits.reverse()
